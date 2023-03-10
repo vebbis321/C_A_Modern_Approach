@@ -4,18 +4,18 @@
 
 int main(void)
 {
-    long n, sum = 0;
+    int n; double sum = 0;
 
     printf("This program sums a series of integers.\n");
     
     printf("Enter integers to (0 to terminate): ");
-    scanf("%ld", &n);
+    scanf("%d", &n);
 
     while (n!=0) { 
         sum += n;
-        scanf("%ld", &n);
+        scanf("%d", &n);
     }
-    printf("The sum is: %ld\n", sum);
+    printf("The sum is: %lf\n", sum);
 
     return 0;
 }
