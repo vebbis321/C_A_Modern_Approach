@@ -14,4 +14,5 @@ int main(void)
     }    
 
     printf("Num of vowels: %d\n", numOfVowels);   
+    return 0;
 }
