@@ -16,30 +16,16 @@ int main(void) {
         d7 = 1140,
         d8 = 1305;
     char aOrP;
-    char m = 0;
-    char time2 = 0;
 
     printf("Enter a 12-hour time followed by A, P, AM, PM (upper/lower): ");
-    scanf("%d :%d %c%c", &hour, &minute, &m, &time2);
-    getchar();
+    scanf("%d :%d %c", &hour, &minute, &aOrP);
+    getchar(); // get rid of newline
     
-    if (aOrP == 65 || m == 77 || aOrP == 80) { 
-        time2 += (aOrP + 77);
-    } else if (time == 97 || time == 109 || time == 112) { 
-        time -= 32;
-        time2 += time;
-    }
-    
-    printf("Time %d\n", time2);
+    hour += (toupper(aOrP) == 65) ? 0 : 12;
+    printf("hour: %d\n", hour);
+    user_time = (hour * 60) + minute;
+
     printf("Closest departure time is ");
-    switch (time2) { 
-        case 80: case 157:
-            user_time = (12 + hour) * 60 + minute;
-        case 65: case 142:
-            user_time = hour * 60 + minute;
-        default:
-            break;
-    }
 
     if (user_time <= d1 + (d2 - d1) / 2)
         printf("8:00 a.m., arriving at 10:16 a.m.\n");
